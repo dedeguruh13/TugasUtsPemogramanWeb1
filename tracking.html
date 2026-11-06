@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracking Pengiriman | Rak Kata</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="tracking">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt=""><span>Rak Kata</span></a>
+      <nav class="nav" aria-label="Menu utama">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stok.html">Katalog</a>
+        <a href="checkout.html">Pemesanan</a>
+        <a href="tracking.html">Tracking</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="user-box">
+        <span id="namaUser">Pengguna</span>
+        <button type="button" class="btn btn-keluar btn-kecil" id="btnKeluar">Keluar</button>
+      </div>
+    </div>
+  </header>
+  <main class="konten">
+    <header class="judul-hal">
+      <h1>Tracking pengiriman</h1>
+      <p>Masukkan nomor Delivery Order yang tertera di bukti pemesanan.</p>
+    </header>
+
+    <section class="panel">
+      <form id="formTracking" novalidate>
+        <div class="field" style="margin-bottom:.25rem">
+          <label for="nomorDO">Nomor Delivery Order</label>
+          <div class="cari-do">
+            <input id="nomorDO" name="nomorDO" placeholder="DO2026-0001" autocomplete="off">
+            <button type="submit" class="btn btn-utama">Cari</button>
+          </div>
+          <small class="pesan-error" aria-live="polite"></small>
+        </div>
+      </form>
+      <p style="font-size:.9rem;color:var(--abu);margin:0">Coba: <span id="contohDO"></span></p>
+    </section>
+
+    <section class="hasil-tracking" id="hasilTracking" hidden aria-live="polite">
+      <div class="panel">
+        <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+          <div>
+            <p style="margin:0;color:var(--abu)">Nama pemesan</p>
+            <h2 id="tNama" style="margin:0">-</h2>
+          </div>
+          <div style="text-align:right">
+            <p style="margin:0;color:var(--abu)" id="tNomor">-</p>
+            <strong id="tStatus" style="color:var(--utama);font-size:1.1rem">-</strong>
+          </div>
+        </div>
+        <ol class="progress-langkah" id="progress" aria-label="Status pengiriman"></ol>
+        <dl class="detail-list">
+          <div><dt>Ekspedisi</dt><dd id="tEkspedisi">-</dd></div>
+          <div><dt>Tanggal kirim</dt><dd id="tTanggal">-</dd></div>
+          <div><dt>Jenis paket</dt><dd id="tPaket">-</dd></div>
+          <div><dt>Total pembayaran</dt><dd id="tTotal">-</dd></div>
+        </dl>
+      </div>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Riwayat perjalanan</h3>
+          <ul class="timeline" id="timeline"></ul>
+        </div>
+        <div class="panel">
+          <h3>Isi paket</h3>
+          <ul id="tItems" style="padding-left:1.1rem;margin:0"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="kaki">
+    <p>&copy; 2026 Rak Kata — Toko Buku Online. Tugas UTS Pemrograman Web 1.</p>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

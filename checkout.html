@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pemesanan | Rak Kata</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt=""><span>Rak Kata</span></a>
+      <nav class="nav" aria-label="Menu utama">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stok.html">Katalog</a>
+        <a href="checkout.html">Pemesanan</a>
+        <a href="tracking.html">Tracking</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="user-box">
+        <span id="namaUser">Pengguna</span>
+        <button type="button" class="btn btn-keluar btn-kecil" id="btnKeluar">Keluar</button>
+      </div>
+    </div>
+  </header>
+  <main class="konten">
+    <header class="judul-hal">
+      <h1>Pemesanan buku</h1>
+      <p>Susun daftar buku, lengkapi data pemesan, lalu pilih cara bayar.</p>
+    </header>
+
+    <form id="formCheckout" novalidate>
+      <div class="grid-2">
+        <div>
+          <section class="panel" aria-labelledby="judulItem">
+            <h2 id="judulItem">Data pemesanan</h2>
+            <div class="baris-field" style="grid-template-columns:2fr 1fr auto;align-items:start">
+              <div class="field">
+                <label for="pilihBuku">Pilih buku</label>
+                <select id="pilihBuku"><option value="">Pilih judul</option></select>
+                <small class="pesan-error" aria-live="polite"></small>
+              </div>
+              <div class="field">
+                <label for="jumlahItem">Jumlah</label>
+                <input type="number" id="jumlahItem" min="1" value="1">
+                <small class="pesan-error" aria-live="polite"></small>
+              </div>
+              <button type="button" class="btn btn-garis" id="btnTambahItem" style="margin-top:1.75rem">Tambah</button>
+            </div>
+            <div class="tabel-wrap">
+              <table id="tabelKeranjang">
+                <thead>
+                  <tr><th scope="col">Buku</th><th scope="col" class="angka">Harga</th><th scope="col">Jumlah</th><th scope="col" class="angka">Subtotal</th><th scope="col"><span hidden>Aksi</span></th></tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="judulPemesan">
+            <h2 id="judulPemesan">Informasi pemesan</h2>
+            <div class="baris-field">
+              <div class="field">
+                <label for="namaPemesan">Nama lengkap</label>
+                <input id="namaPemesan" name="namaPemesan" autocomplete="name">
+                <small class="pesan-error" aria-live="polite"></small>
+              </div>
+              <div class="field">
+                <label for="telepon">Nomor HP</label>
+                <input id="telepon" name="telepon" inputmode="tel" placeholder="08xxxxxxxxxx">
+                <small class="pesan-error" aria-live="polite"></small>
+              </div>
+            </div>
+            <div class="field">
+              <label for="emailPemesan">Email</label>
+              <input type="email" id="emailPemesan" name="emailPemesan">
+              <small class="pesan-error" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="alamat">Alamat pengiriman</label>
+              <textarea id="alamat" name="alamat" rows="3" placeholder="Jalan, nomor rumah, kecamatan, kota, kode pos"></textarea>
+              <small class="pesan-error" aria-live="polite"></small>
+            </div>
+            <div class="baris-field">
+              <div class="field">
+                <label for="ekspedisi">Ekspedisi</label>
+                <select id="ekspedisi" name="ekspedisi"><option value="">Pilih ekspedisi</option></select>
+                <small class="pesan-error" aria-live="polite"></small>
+              </div>
+              <div class="field">
+                <label for="paket">Jenis paket</label>
+                <select id="paket" name="paket"><option value="">Pilih paket</option></select>
+                <small class="pesan-error" aria-live="polite"></small>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside>
+          <section class="panel" aria-labelledby="judulBayar">
+            <h2 id="judulBayar">Pembayaran</h2>
+            <fieldset class="field" style="border:0;padding:0;margin:0 0 1rem">
+              <legend style="font-weight:600;margin-bottom:.4rem">Metode pembayaran</legend>
+              <label><input type="radio" name="metode" value="transfer"> Transfer bank</label>
+              <label><input type="radio" name="metode" value="ewallet"> E-wallet</label>
+              <label><input type="radio" name="metode" value="cod"> Bayar di tempat (COD)</label>
+              <small class="pesan-error" aria-live="polite"></small>
+            </fieldset>
+            <p id="infoBayar" style="font-size:.9rem;background:var(--muda);padding:.75rem;border-radius:6px">Pilih metode untuk melihat instruksi pembayaran.</p>
+
+            <table class="rincian">
+              <tr><td>Jumlah</td><td class="angka" id="rItem">0 buku</td></tr>
+              <tr><td>Subtotal</td><td class="angka" id="rSubtotal">Rp0</td></tr>
+              <tr><td>Ongkos kirim</td><td class="angka" id="rOngkir">Rp0</td></tr>
+              <tr class="total"><td>Total bayar</td><td class="angka" id="rTotal">Rp0</td></tr>
+            </table>
+            <button type="submit" class="btn btn-utama" style="width:100%;margin-top:1rem">Buat pesanan</button>
+          </section>
+        </aside>
+      </div>
+    </form>
+  </main>
+  <footer class="kaki">
+    <p>&copy; 2026 Rak Kata — Toko Buku Online. Tugas UTS Pemrograman Web 1.</p>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

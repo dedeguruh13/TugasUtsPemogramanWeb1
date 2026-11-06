@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | Rak Kata</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+  <div class="login-wrap">
+    <aside class="login-sisi">
+      <img src="assets/logo.png" alt="Logo Rak Kata" width="56" height="56">
+      <div>
+        <h1>Setiap pesanan buku, tercatat rapi.</h1>
+        <p>Kelola katalog, pemesanan, dan pengiriman toko buku online Rak Kata dari satu tempat.</p>
+      </div>
+      <!-- Contoh CSS INLINE -->
+      <p style="font-size:.85rem;margin:0;opacity:.75">Rak Kata — Toko Buku Online</p>
+    </aside>
+
+    <main class="login-form-area">
+      <section class="login-card" aria-labelledby="judulLogin">
+        <h2 id="judulLogin">Masuk ke akun</h2>
+        <p style="color:var(--abu)">Gunakan email dan password yang terdaftar.</p>
+
+        <form id="formLogin" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="nama@rakkata.id" autocomplete="username">
+            <small class="pesan-error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <div style="display:flex;gap:.5rem">
+              <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" style="flex:1">
+              <button type="button" class="btn btn-garis btn-kecil" id="lihatPassword">Lihat</button>
+            </div>
+            <small class="pesan-error" aria-live="polite"></small>
+          </div>
+          <button type="submit" class="btn btn-utama" style="width:100%">Login</button>
+        </form>
+
+        <div class="login-bawah">
+          <button type="button" class="btn btn-teks" data-buka="modalLupa">Lupa Password</button>
+          <button type="button" class="btn btn-teks" data-buka="modalDaftar">Daftar</button>
+        </div>
+
+        <div class="akun-demo">
+          <strong>Akun demo:</strong> guruh@rakkata.id / guruh123
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal Lupa Password -->
+  <div class="modal" id="modalLupa" role="dialog" aria-modal="true" aria-labelledby="judulLupa" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 id="judulLupa">Lupa password</h2>
+        <button type="button" class="tutup" data-tutup aria-label="Tutup">&times;</button>
+      </div>
+      <p>Masukkan email akun Anda. Kami kirim tautan untuk membuat password baru.</p>
+      <form id="formLupa" novalidate>
+        <div class="field">
+          <label for="emailLupa">Email</label>
+          <input type="email" id="emailLupa" placeholder="nama@rakkata.id">
+          <small class="pesan-error" aria-live="polite"></small>
+        </div>
+        <div class="modal-aksi">
+          <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+          <button type="submit" class="btn btn-utama">Kirim tautan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Daftar -->
+  <div class="modal" id="modalDaftar" role="dialog" aria-modal="true" aria-labelledby="judulDaftar" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h2 id="judulDaftar">Daftar akun baru</h2>
+        <button type="button" class="tutup" data-tutup aria-label="Tutup">&times;</button>
+      </div>
+      <form id="formDaftar" novalidate>
+        <div class="field">
+          <label for="namaDaftar">Nama lengkap</label>
+          <input type="text" id="namaDaftar" autocomplete="name">
+          <small class="pesan-error" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="emailDaftar">Email</label>
+          <input type="email" id="emailDaftar" autocomplete="email">
+          <small class="pesan-error" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="passDaftar">Password</label>
+          <input type="password" id="passDaftar" autocomplete="new-password" placeholder="Minimal 6 karakter">
+          <small class="pesan-error" aria-live="polite"></small>
+        </div>
+        <div class="field">
+          <label for="konfirmasiDaftar">Ulangi password</label>
+          <input type="password" id="konfirmasiDaftar" autocomplete="new-password">
+          <small class="pesan-error" aria-live="polite"></small>
+        </div>
+        <div class="modal-aksi">
+          <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+          <button type="submit" class="btn btn-utama">Daftar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

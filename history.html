@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>History Transaksi | Rak Kata</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="history">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt=""><span>Rak Kata</span></a>
+      <nav class="nav" aria-label="Menu utama">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stok.html">Katalog</a>
+        <a href="checkout.html">Pemesanan</a>
+        <a href="tracking.html">Tracking</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="user-box">
+        <span id="namaUser">Pengguna</span>
+        <button type="button" class="btn btn-keluar btn-kecil" id="btnKeluar">Keluar</button>
+      </div>
+    </div>
+  </header>
+  <main class="konten">
+    <header class="judul-hal">
+      <h1>History transaksi</h1>
+      <p>Semua Delivery Order, terbaru di atas.</p>
+    </header>
+    <section class="ringkasan" style="margin:0 0 1.5rem;padding:0;border:0" aria-label="Ringkasan transaksi">
+      <div><strong id="hJumlah">0</strong><span>transaksi</span></div>
+      <div><strong id="hOmzet">Rp0</strong><span>total nilai</span></div>
+      <div><strong id="hSelesai">0</strong><span>sampai tujuan</span></div>
+    </section>
+    <section class="panel">
+      <div class="toolbar">
+        <input type="search" id="cariHistory" placeholder="Cari nomor DO atau nama pemesan…" aria-label="Cari transaksi">
+        <select id="filterStatus" aria-label="Filter status"><option value="">Semua status</option></select>
+      </div>
+      <div class="tabel-wrap">
+        <table id="tabelHistory">
+          <thead>
+            <tr><th scope="col">Nomor DO</th><th scope="col">Pemesan</th><th scope="col">Ekspedisi</th><th scope="col">Tanggal kirim</th><th scope="col">Status</th><th scope="col" class="angka">Total</th><th scope="col"><span hidden>Aksi</span></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="kaki">
+    <p>&copy; 2026 Rak Kata — Toko Buku Online. Tugas UTS Pemrograman Web 1.</p>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

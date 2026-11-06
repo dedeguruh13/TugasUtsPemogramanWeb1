@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Katalog & Stok | Rak Kata</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="stok">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt=""><span>Rak Kata</span></a>
+      <nav class="nav" aria-label="Menu utama">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stok.html">Katalog</a>
+        <a href="checkout.html">Pemesanan</a>
+        <a href="tracking.html">Tracking</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="user-box">
+        <span id="namaUser">Pengguna</span>
+        <button type="button" class="btn btn-keluar btn-kecil" id="btnKeluar">Keluar</button>
+      </div>
+    </div>
+  </header>
+  <main class="konten">
+    <header class="judul-hal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap">
+      <div>
+        <h1>Informasi stok &amp; katalog</h1>
+        <p id="infoJumlah">Memuat data…</p>
+      </div>
+      <button type="button" class="btn btn-utama" data-buka="modalStok">+ Tambah stok baru</button>
+    </header>
+
+    <section class="panel">
+      <div class="toolbar">
+        <input type="search" id="cariBuku" placeholder="Cari judul atau kode barang…" aria-label="Cari buku">
+        <select id="filterJenis" aria-label="Filter jenis barang">
+          <option value="">Semua jenis</option>
+        </select>
+      </div>
+      <div class="tabel-wrap">
+        <table id="tabelStok">
+          <caption hidden>Daftar katalog buku</caption>
+          <thead>
+            <tr>
+              <th scope="col">Sampul</th><th scope="col">Kode</th><th scope="col">Nama buku</th><th scope="col">Jenis</th>
+              <th scope="col">Edisi</th><th scope="col">Lokasi</th><th scope="col">Stok</th><th scope="col" class="angka">Harga</th><th scope="col">Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal tambah stok -->
+  <div class="modal" id="modalStok" role="dialog" aria-modal="true" aria-labelledby="judulStok" aria-hidden="true">
+    <div class="modal-box" style="max-width:560px">
+      <div class="modal-head">
+        <h2 id="judulStok">Tambah stok baru</h2>
+        <button type="button" class="tutup" data-tutup aria-label="Tutup">&times;</button>
+      </div>
+      <form id="formStok" novalidate>
+        <div class="baris-field">
+          <div class="field">
+            <label for="kodeBarang">Kode barang</label>
+            <input id="kodeBarang" name="kodeBarang" placeholder="EKMA4100" maxlength="8">
+            <small class="pesan-error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="kodeLokasi">Kode lokasi gudang</label>
+            <input id="kodeLokasi" name="kodeLokasi" placeholder="0JKT01" maxlength="6">
+            <small class="pesan-error" aria-live="polite"></small>
+          </div>
+        </div>
+        <div class="field">
+          <label for="namaBarang">Nama buku</label>
+          <input id="namaBarang" name="namaBarang" placeholder="Judul buku">
+          <small class="pesan-error" aria-live="polite"></small>
+        </div>
+        <div class="baris-field">
+          <div class="field">
+            <label for="jenisBarang">Jenis barang</label>
+            <select id="jenisBarang" name="jenisBarang">
+              <option value="">Pilih jenis</option>
+              <option>Buku Ajar</option>
+              <option>Buku Praktikum</option>
+              <option>Modul</option>
+              <option>Novel</option>
+            </select>
+            <small class="pesan-error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="edisi">Edisi</label>
+            <input id="edisi" name="edisi" inputmode="numeric" placeholder="1">
+            <small class="pesan-error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="stok">Jumlah stok</label>
+            <input id="stok" name="stok" inputmode="numeric" placeholder="0">
+            <small class="pesan-error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="harga">Harga (Rp)</label>
+            <input id="harga" name="harga" inputmode="numeric" placeholder="150000">
+            <small class="pesan-error" aria-live="polite"></small>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cover">Gambar sampul</label>
+          <select id="cover" name="cover">
+            <option value="img/buku1.png">buku1.png</option>
+            <option value="img/buku2.png">buku2.png</option>
+            <option value="img/buku3.png">buku3.png</option>
+            <option value="img/buku4.png">buku4.png</option>
+            <option value="img/buku5.png">buku5.png</option>
+            <option value="img/buku6.png">buku6.png</option>
+          </select>
+        </div>
+        <div class="modal-aksi">
+          <button type="button" class="btn btn-garis" data-tutup>Batal</button>
+          <button type="submit" class="btn btn-utama">Simpan ke katalog</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <footer class="kaki">
+    <p>&copy; 2026 Rak Kata — Toko Buku Online. Tugas UTS Pemrograman Web 1.</p>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

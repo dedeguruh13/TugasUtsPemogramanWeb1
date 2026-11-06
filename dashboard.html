@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Rak Kata</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Contoh CSS INTERNAL: warna sapaan berubah sesuai waktu -->
+  <style>
+    /* warna garis bawah sapaan berubah sesuai waktu (diatur oleh script.js) */
+    .waktu-pagi  .sapaan { border-bottom-color: #e8a000; }
+    .waktu-siang .sapaan { border-bottom-color: #d9534f; }
+    .waktu-sore  .sapaan { border-bottom-color: #8e5b3a; }
+    .waktu-malam .sapaan { border-bottom-color: #0b5394; }
+  </style>
+</head>
+<body data-page="dashboard">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="dashboard.html"><img src="assets/logo.png" alt=""><span>Rak Kata</span></a>
+      <nav class="nav" aria-label="Menu utama">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stok.html">Katalog</a>
+        <a href="checkout.html">Pemesanan</a>
+        <a href="tracking.html">Tracking</a>
+        <a href="history.html">History</a>
+      </nav>
+      <div class="user-box">
+        <span id="namaUser">Pengguna</span>
+        <button type="button" class="btn btn-keluar btn-kecil" id="btnKeluar">Keluar</button>
+      </div>
+    </div>
+  </header>
+  <main class="konten">
+    <section class="sapaan" aria-labelledby="greeting">
+      <div>
+        <h1 id="greeting">Selamat datang</h1>
+        <p style="color:var(--abu);margin:.3rem 0 0">Masuk sebagai <strong id="peran">-</strong>. Mau mengerjakan apa hari ini?</p>
+      </div>
+      <div style="text-align:right">
+        <div class="jam" id="jam" aria-live="off">--:--</div>
+        <div id="tanggal" style="color:var(--abu)"></div>
+      </div>
+    </section>
+
+    <nav class="menu-utama" aria-label="Menu dashboard">
+      <a class="menu-item" href="stok.html">
+        <div><h2>Informasi Stok / Katalog</h2><p>Lihat stok setiap judul dan tambahkan buku baru.</p></div>
+      </a>
+      <a class="menu-item" href="tracking.html">
+        <div><h2>Tracking Pengiriman</h2><p>Lacak posisi paket dengan nomor Delivery Order.</p></div>
+      </a>
+      <a class="menu-item" href="checkout.html">
+        <div><h2>Laporan Pemesanan</h2><p>Susun pesanan, isi data pemesan, dan pilih pembayaran.</p></div>
+      </a>
+      <a class="menu-item" href="history.html">
+        <div><h2>History Transaksi</h2><p>Riwayat semua Delivery Order beserta statusnya.</p></div>
+      </a>
+    </nav>
+
+    <section class="ringkasan" aria-label="Ringkasan toko">
+      <div><strong id="jmlJudul">0</strong><span>judul di katalog</span></div>
+      <div><strong id="jmlStok">0</strong><span>total eksemplar</span></div>
+      <div><strong id="jmlMenipis">0</strong><span>judul stok menipis</span></div>
+      <div><strong id="jmlPesanan">0</strong><span>Delivery Order</span></div>
+    </section>
+  </main>
+  <footer class="kaki">
+    <p>&copy; 2026 Rak Kata — Toko Buku Online. Tugas UTS Pemrograman Web 1.</p>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
